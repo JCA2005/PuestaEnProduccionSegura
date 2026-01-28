@@ -76,10 +76,10 @@ docker ps
 
 #### 2.3.4. Configuración de Permisos de Usuario
 
-Para evitar el uso constante de sudo, añadimos el usuario Javi al grupo docker:
+Para evitar el uso constante de sudo, añadimos el usuario al grupo docker:
 
 ```bash
-sudo usermod -aG docker javi
+sudo usermod -aG docker $USER
 ```
 
 <img width="1919" height="629" alt="Captura de pantalla 2026-01-20 114733" src="https://github.com/user-attachments/assets/080dda51-0845-4f7e-9dfd-a6a704f3a643" />
