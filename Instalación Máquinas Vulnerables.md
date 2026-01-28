@@ -39,7 +39,7 @@ sudo apt update && sudo apt upgrade -y
 
 <img width="1919" height="456" alt="Captura de pantalla 2026-01-20 114359" src="https://github.com/user-attachments/assets/ebe16f3b-efe7-481f-bc8e-b73d42b24597" />
 
-#### 2.3.2. Instalación de Docker
+### 2.3.2. Instalación de Docker
 
 Para instalar el motor de contenedores, utilizamos el paquete docker.io, que incluye todos los componentes necesarios.
 
@@ -56,7 +56,7 @@ docker --version
 ```
 
 <img width="1919" height="279" alt="Captura de pantalla 2026-01-20 114521" src="https://github.com/user-attachments/assets/4ac358e3-ae15-4388-8ccc-8a461dcd1398" />
-#### 2.3.3. Gestión del Servicio Docker
+### 2.3.3. Gestión del Servicio Docker
 
 Iniciamos el servicio de Docker y lo configuramos para que se ejecute automáticamente al iniciar el sistema:
 
@@ -72,7 +72,7 @@ docker ps
 ```
 
 <img width="1915" height="425" alt="Captura de pantalla 2026-01-20 114613" src="https://github.com/user-attachments/assets/26e85eb3-64b3-4262-8776-29f2f66b6bb1" />
-#### 2.3.4. Configuración de Permisos de Usuario
+### 2.3.4. Configuración de Permisos de Usuario
 
 Para evitar el uso constante de sudo, añadimos el usuario Javi al grupo docker:
 
