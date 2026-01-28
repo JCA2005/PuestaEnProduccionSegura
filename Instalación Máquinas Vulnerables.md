@@ -38,7 +38,8 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 <img width="1919" height="456" alt="Captura de pantalla 2026-01-20 114359" src="https://github.com/user-attachments/assets/ebe16f3b-efe7-481f-bc8e-b73d42b24597" />
-2.3.2. Instalación de Docker
+
+#### 2.3.2. Instalación de Docker
 
 Para instalar el motor de contenedores, utilizamos el paquete docker.io, que incluye todos los componentes necesarios.
 
@@ -55,7 +56,7 @@ docker --version
 ```
 
 <img width="1919" height="279" alt="Captura de pantalla 2026-01-20 114521" src="https://github.com/user-attachments/assets/4ac358e3-ae15-4388-8ccc-8a461dcd1398" />
-2.3.3. Gestión del Servicio Docker
+#### 2.3.3. Gestión del Servicio Docker
 
 Iniciamos el servicio de Docker y lo configuramos para que se ejecute automáticamente al iniciar el sistema:
 
@@ -71,7 +72,7 @@ docker ps
 ```
 
 <img width="1915" height="425" alt="Captura de pantalla 2026-01-20 114613" src="https://github.com/user-attachments/assets/26e85eb3-64b3-4262-8776-29f2f66b6bb1" />
-2.3.4. Configuración de Permisos de Usuario
+#### 2.3.4. Configuración de Permisos de Usuario
 
 Para evitar el uso constante de sudo, añadimos el usuario Javi al grupo docker:
 
@@ -80,13 +81,14 @@ sudo usermod -aG docker javi
 ```
 
 <img width="1919" height="629" alt="Captura de pantalla 2026-01-20 114733" src="https://github.com/user-attachments/assets/080dda51-0845-4f7e-9dfd-a6a704f3a643" />
-3. Despliegue de la Máquina Vulnerable "Obsession"
-3.1. Descarga del Laboratorio
+
+## 3. Despliegue de la Máquina Vulnerable "Obsession"
+### 3.1. Descarga del Laboratorio
 
 Descargamos el archivo comprimido de la máquina Obsession desde el enlace oficial proporcionado por DockerLabs (alojado en MEGA).
 
 <img width="1919" height="868" alt="Captura de pantalla 2026-01-20 115158" src="https://github.com/user-attachments/assets/a228595e-4061-41e6-925d-7c3e349a72f5" />
-3.2. Preparación del Script de Despliegue
+### 3.2. Preparación del Script de Despliegue
 
 Nos ubicamos en el directorio de descargas y descomprimimos el laboratorio. Posteriormente, revisamos el script de despliegue auto_deploy.sh utilizando el editor nano:
 
@@ -99,7 +101,8 @@ nano auto_deploy.sh
 Revisar este script es fundamental para comprender cómo se construye la imagen Docker y cómo se asigna la red al contenedor.
 
 <img width="1920" height="1020" alt="Captura de pantalla 2026-01-20 121001" src="https://github.com/user-attachments/assets/402b54cf-4f68-466c-9fb7-72365d2a6ae3" />
-3.3. Ejecución del Despliegue
+
+### 3.3. Ejecución del Despliegue
 
 Ejecutamos el script con permisos de superusuario para iniciar el despliegue de la máquina vulnerable:
 
@@ -116,8 +119,9 @@ El proceso finaliza correctamente, indicando que la máquina está activa en la 
 ```
 
 <img width="780" height="611" alt="Captura de pantalla 2026-01-28 090005" src="https://github.com/user-attachments/assets/f534163d-ae12-492d-9985-d61f8a195aea" />
-4. Fase de Reconocimiento y Enumeración
-4.1. Comprobación de Conectividad
+
+## 4. Fase de Reconocimiento y Enumeración
+### 4.1. Comprobación de Conectividad
 
 Para verificar que la máquina es accesible, enviamos paquetes ICMP mediante el siguiente comando:
 
@@ -128,7 +132,8 @@ ping -c 2 172.17.0.2
 El valor TTL = 64 confirma que el sistema operativo objetivo es Linux.
 
 <img width="772" height="423" alt="Captura de pantalla 2026-01-28 090100" src="https://github.com/user-attachments/assets/da634f5d-31c3-43e0-be44-d76f936f74b3" />
-4.2. Escaneo de Puertos con Nmap
+
+### 4.2. Escaneo de Puertos con Nmap
 
 Para identificar los servicios expuestos, realizamos un escaneo completo de puertos utilizando nmap:
 
@@ -138,14 +143,15 @@ nmap -p- -sVC --min-rate 5000 -n -Pn 172.17.0.2
 
 Resultados obtenidos:
 
-Puerto 21 (FTP): Acceso anónimo habilitado y presencia de archivos sospechosos (chat-gonza.txt, pendientes.txt)
+- Puerto 21 (FTP): Acceso anónimo habilitado y presencia de archivos sospechosos (chat-gonza.txt, pendientes.txt)
 
-Puerto 22 (SSH): Servicio abierto
+- Puerto 22 (SSH): Servicio abierto
 
-Puerto 80 (HTTP): Servidor Apache activo
+- Puerto 80 (HTTP): Servidor Apache activo
 
 <img width="839" height="674" alt="Captura de pantalla 2026-01-28 091328" src="https://github.com/user-attachments/assets/968b1d6f-859b-4a0b-91a0-d9e51785129d" />
-4.3. Enumeración Web
+
+### 4.3. Enumeración Web
 
 Para identificar tecnologías web, utilizamos la herramienta whatweb mediante el siguiente comando:
 
