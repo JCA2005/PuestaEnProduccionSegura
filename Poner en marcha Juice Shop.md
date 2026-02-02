@@ -1,6 +1,9 @@
-# Despliegue de OWASP Juice Shop y Detección de Vulnerabilidades
+# <h1 align="center">Poner en marcha Juice Shop</h1>
 
-<img width="1536" height="1024" alt="OWASP Juice Shop Logo" src="https://owasp.org/www-project-juice-shop/assets/logo.png" />
+<p align="center">
+  <img width="400" height="480" alt="image" src="https://github.com/user-attachments/assets/9a0c70bf-caa3-4f22-b7a0-cd349a4f94e1" />
+</p>
+
 
 ## 1. Introducción y Objetivos
 
@@ -30,7 +33,7 @@ El primer paso consiste en descargar la imagen Docker oficial de OWASP Juice Sho
 ```bash
 docker pull bkimmirich/juice-shop
 ```
-![alt text](<Captura de pantalla 2026-02-02 121709.png>)
+<img width="1919" height="1008" alt="Captura de pantalla 2026-02-02 121709" src="https://github.com/user-attachments/assets/d98291a6-1543-4ef8-b601-323f166d97e4" />
 
 Este comando descargará automáticamente las capas necesarias de la imagen, incluyendo el sistema operativo base, Node.js y todas las dependencias de la aplicación.
 
@@ -67,7 +70,7 @@ docker run --rm -p 3000:3000 bkimmirich/juice-shop
 - `-p 3000:3000`: Mapea el puerto 3000 del contenedor al puerto 3000 del host
 - `bkimmirich/juice-shop`: Nombre de la imagen Docker
 
-![alt text](<Captura de pantalla 2026-02-02 121852.png>)
+<img width="927" height="463" alt="Captura de pantalla 2026-02-02 121852" src="https://github.com/user-attachments/assets/d6c395f8-bf78-49b1-8fb8-d177ed0044f2" />
 
 Cuando veas el mensaje **"Server listening on port 3000"**, la aplicación estará lista para usar.
 
@@ -83,7 +86,7 @@ http://localhost:3000
 
 Se desplegará la página principal de OWASP Juice Shop con el catálogo de productos.
 
-![alt text](<Captura de pantalla 2026-02-02 121956.png>)
+<img width="1919" height="865" alt="Captura de pantalla 2026-02-02 121956" src="https://github.com/user-attachments/assets/b788e517-0771-4d67-968c-5e6728d703a2" />
 
 La aplicación incluye:
 - Catálogo de productos con descripciones
@@ -116,7 +119,8 @@ Una vulnerabilidad **Stored XSS** (Cross-Site Scripting Almacenado) fue identifi
 
 #### 7.1.3. Evidencia
 
-![alt text](<Captura de pantalla 2026-02-02 122129.png>)
+<img width="1919" height="969" alt="Captura de pantalla 2026-02-02 122129" src="https://github.com/user-attachments/assets/78791486-43e6-4f51-bcb9-345913a1455f" />
+
 
 El navegador ejecuta el código JavaScript inyectado, mostrando un alert (ventana emergente) con el mensaje "XSS". Esta es una prueba de concepto que demuestra la falta de sanitización de entrada.
 
